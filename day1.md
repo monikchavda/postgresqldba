@@ -38,6 +38,26 @@ There should be no output.
 
 ## Step 2 — Check the Original Data Directory
 
+systemctl cat postgresql-18|grep environment
+
+### The output is :
+
+[Service]
+Type=notify
+
+User=postgres
+Group=postgres
+
+# Note: avoid inserting whitespace in these Environment= lines, or you may
+# break postgresql-setup.
+
+# Location of database directory
+Environment=PGDATA=/var/lib/pgsql/18/data/
+
+
+
+
+
 The original `PGDATA` is `/var/lib/pgsql/18/data`.
 
 ```bash

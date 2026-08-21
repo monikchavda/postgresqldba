@@ -47,10 +47,6 @@ Type=notify
 
 User=postgres
 Group=postgres
-
-# Note: avoid inserting whitespace in these Environment= lines, or you may
-# break postgresql-setup.
-
 # Location of database directory
 Environment=PGDATA=/var/lib/pgsql/18/data/
 

@@ -82,13 +82,20 @@ ps aux | grep postgres
 ```
 
 ```text
-postgres  ... postgres -D /data
-postgres  ... postgres: checkpointer
-postgres  ... postgres: background writer
-postgres  ... postgres: walwriter
-postgres  ... postgres: autovacuum launcher
-postgres  ... postgres: logical replication launcher
-postgres  ... postgres: myapp myuser 10.0.0.5(5432) idle
+[root@rocky9 ~]# ps aux | grep postgres
+postgres   55133  0.0  1.7 222676 31616 ?        Ss   10:59   0:00 /usr/pgsql-18/bin/postgres -D /data
+postgres   55134  0.0  0.3  69280  6936 ?        Ss   10:59   0:00 postgres: logger
+postgres   55135  0.0  0.8 222808 15136 ?        Ss   10:59   0:00 postgres: io worker 0
+postgres   55136  0.0  0.4 222676  7328 ?        Ss   10:59   0:00 postgres: io worker 2
+postgres   55137  0.0  0.4 222808  8096 ?        Ss   10:59   0:00 postgres: io worker 1
+postgres   55138  0.0  1.3 222912 23328 ?        Ss   10:59   0:00 postgres: checkpointer
+postgres   55139  0.0  0.5 222832  9120 ?        Ss   10:59   0:00 postgres: background writer
+postgres   55141  0.0  0.6 222808 11680 ?        Ss   10:59   0:00 postgres: walwriter
+postgres   55142  0.0  0.5 224256 10656 ?        Ss   10:59   0:00 postgres: autovacuum launcher
+postgres   55143  0.0  0.5 224256  9888 ?        Ss   10:59   0:00 postgres: logical replication launcher
+root       57026  0.0  0.1   6424  2432 pts/0    S+   12:31   0:00 grep --color=auto postgres
+[root@rocky9 ~]#
+
 ```
 
 That last line — one process per connected client — is the backend process.
